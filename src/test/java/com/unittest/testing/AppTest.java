@@ -1,5 +1,4 @@
 package com.unittest.testing;
-
 import static org.hamcrest.CoreMatchers.both;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.everyItem;
@@ -13,75 +12,160 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-
 import java.util.Arrays;
+import org.junit.Before;
 import org.junit.Test;
-
 public class AppTest 
 {
+	Fahrenheit object;
+	@Before
+
 	
-	@Test
-	public void pub() {
-		assertEquals(0, 1);
+	public void newClassFahrenheit() {
+		object = new Fahrenheit();
 	}
-//	@Test
-//	  public void testAssertArrayEquals() {
-//	    byte[] expected = "trial".getBytes();
-//	    byte[] actual = "trial".getBytes();
-//	    assertArrayEquals("failure - byte arrays not same", expected, actual);
-//	  }
-//
-//	  @Test
-//	  public void testAssertEquals() {
-//	    assertEquals("failure - strings are not equal", "text", "text");
-//	  }
-//
-//	  @Test
-//	  public void testAssertFalse() {
-//	    assertFalse("failure - should be false", false);
-//	  }
-//
-//	  @Test
-//	  public void testAssertNotNull() {
-//	    assertNotNull("should not be null", new Object());
-//	  }
-//
-//	  @Test
-//	  public void testAssertNotSame() {
-//	    assertNotSame("should not be same Object", new Object(), new Object());
-//	  }
-//
-//	  @Test
-//	  public void testAssertNull() {
-//	    assertNull("should be null", null);
-//	  }
-//
-//	  @Test
-//	  public void testAssertSame() {
-//	    Integer aNumber = Integer.valueOf(768);
-//	    assertSame("should be same", aNumber, aNumber);
-//	  }
-//
-//	  // JUnit Matchers assertThat
-//	  @Test
-//	  public void testAssertThatBothContainsString() {
-//	    assertThat("albumen", both(containsString("a")).and(containsString("b")));
-//	  }
-//
-//	  @Test
-//	  public void testAssertThatHasItems() {
-//	    assertThat(Arrays.asList("one", "two", "three"), hasItems("one", "three"));
-//	  }
-//
-//	  @Test
-//	  public void testAssertThatEveryItemContainsString() {
-//	    assertThat(Arrays.asList(new String[] { "fun", "ban", "net" }), everyItem(containsString("n")));
-//	  }
-//
-//	  @Test
-//	  public void testAssertTrue() {
-//	    assertTrue("failure - should be true", true);
-//	  }
-	  
-	  
+	@Test
+	public void testResult0Input0() {
+		double input = 0 ;
+		double expected = 0;
+		object.input(input);
+		double actual = object.getCelsius();
+		assertEquals(expected, actual,2);
+	}
+	@Test
+	public void testResult1000Input1000() {
+		double input = 1000 ;
+		double expected = 1000;
+		object.input(input);
+		double actual = object.getCelsius();
+		assertEquals(expected, actual,2);
+	}
+	@Test
+	public void testResultmin1000Input1000() {
+		double input = -1000 ;
+		double expected = -1000;
+		object.input(input);
+		double actual = object.getCelsius();
+		assertEquals(expected, actual,2);
+	}
+	@Test
+	public void testResulTrueInput0() {
+		double input = 0 ;
+		boolean expected = true;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInput1000() {
+		double input = 1000 ;
+		boolean expected = true;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInputmin1000() {
+		double input = -1000 ;
+		boolean expected = true;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInput2000() {
+		double input = 2000 ;
+		boolean expected = false;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInputmin2000() {
+		double input = -2000 ;
+		boolean expected = false;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInputmin1010() {
+		double input = -1010 ;
+		boolean expected = false;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInputmin999() {
+		double input = -999 ;
+		boolean expected = true;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInputmin501() {
+		double input = -501 ;
+		boolean expected = true;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInputmin500() {
+		double input = -500 ;
+		boolean expected = true;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInputmin499() {
+		double input = -499 ;
+		boolean expected = true;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInputmin1() {
+		double input = -1 ;
+		boolean expected = true;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInput1010() {
+		double input = 1010 ;
+		boolean expected = false;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInput999() {
+		double input = 999 ;
+		boolean expected = true;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInput501() {
+		double input = 501 ;
+		boolean expected = true;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInput500() {
+		double input = 500 ;
+		boolean expected = true;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInput499() {
+		double input = 499 ;
+		boolean expected = true;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testResulTrueInput1() {
+		double input = 1 ;
+		boolean expected = true;
+		boolean actual = object.isBound(input);
+		assertEquals(expected, actual);
+	}
+	
 }
