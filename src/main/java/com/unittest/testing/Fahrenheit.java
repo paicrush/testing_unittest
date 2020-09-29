@@ -1,7 +1,12 @@
 package com.unittest.testing;
 public class Fahrenheit {
 	private double celsius;
+	private double fahrenheit;
 	
+	public double getFahrenheit() {
+		return fahrenheit;
+	}
+
 	public double getCelsius() {
 		return celsius;
 	}
@@ -18,5 +23,15 @@ public class Fahrenheit {
 			result = false;
 		}
 		return result;
+	}
+	
+	public void calculate() {
+		this.fahrenheit = this.celsius*9/5+32; 
+
+	}
+	public String toString() {
+		double fahrenheit = this.getFahrenheit();
+		double celcius = this.getCelsius();
+		return Math.round(celcius)+" celcius = "+String.format("%.2f",fahrenheit)+" fahrenheit";
 	}
 }
